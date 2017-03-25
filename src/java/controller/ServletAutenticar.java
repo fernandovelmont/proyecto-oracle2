@@ -20,8 +20,7 @@ public class ServletAutenticar extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/vnd.ms-excel");
-        PrintWriter salida= response.getWriter();
-        salida.println("Yo soy fernando");
+      
+      
     }
     }
