@@ -10,18 +10,25 @@ import java.sql.Connection;
 
 /**
  *
- * @author Fernandodaniel
+ * @author T-102
  */
-public class DAONetflix {
-      public static String guardarPelicula(String titulo, String sinopsis) throws Exception{
-       Conexion c=new Conexion();
+import java.sql.CallableStatement;
+import java.sql.Connection;
+
+public class Procedimiento {
+public static void main(String args[])throws Exception{
+        Conexion c=new Conexion();
         Connection con=c.conectarse();
-     CallableStatement registro=con.prepareCall("{call guardarPelicula(?,?,?)}");
+     CallableStatement registro=con.prepareCall("{call GUARDAR_PELICULA(?,?,?)}");
         registro.registerOutParameter(1,java.sql.Types.INTEGER);
-        registro.setString(2,titulo);
-        registro.setString(3,sinopsis);
+        registro.setString(2,"rapido y furioso 8");
+        registro.setString(3,"esta muy chida");
+      
         registro.execute();
         int pk=registro.getInt(1);
-        return "SE guardo la pelicula con id:"+pk; 
+        System.out.println("El id ingresado es:"+pk);
     }
+    
 }
+ 
+
